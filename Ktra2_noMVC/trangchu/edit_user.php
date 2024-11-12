@@ -1,7 +1,21 @@
 <?php
 session_start();
 include '../helpers/others/connect.inp';
+?>
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh Sửa Người Dùng</title>
+    <link rel="stylesheet" href="../helpers/css/edituser.css">
+</head>
+<body>
+<button type="button" class="home-button" onclick="window.location.href='../trangchu/welcome.php';">Trang Chủ</button>
+<button type="button" class="logout-button" onclick="window.location.href='../dangnhap/dangnhap.php';">Đăng Xuất</button>
+<h2>Chỉnh Sửa Thông Tin Người Dùng</h2>
+<?php
 if (!isset($_GET['MaTK'])) {
     echo "<script>alert('Mã tài khoản không hợp lệ.'); window.history.back();</script>";
     exit();
@@ -24,69 +38,9 @@ if ($result->num_rows == 0) {
 }
 
 $row = $result->fetch_assoc();
-$alertMessage = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $TenDangNhap = $_POST['TenDangNhap'];
-    $PhanQuyen = $_POST['PhanQuyen'];
-    $TenKH = $_POST['TenKH'];
-    $ngaySinh = $_POST['NgaySinh'];
-    $DiaChi = $_POST['DiaChi'];
-    $email = $_POST['Email'];
-    $sdt = $_POST['SDT'];
-    $matKhau = $_POST['MatKhau'];
-
-    if (!empty($matKhau)) {
-        $matKhau = password_hash($matKhau, PASSWORD_BCRYPT);
-        $updateAccountSql = "UPDATE thongtintaikhoan SET TenDangNhap=?, Matkhau=?, PhanQuyen=?, NgaySua=NOW() WHERE MaTK=?";
-        $updateAccountStmt = $con->prepare($updateAccountSql);
-        $updateAccountStmt->bind_param('ssss', $TenDangNhap, $matKhau, $PhanQuyen, $maTK);
-    } else {
-        $updateAccountSql = "UPDATE thongtintaikhoan SET TenDangNhap=?, PhanQuyen=?, NgaySua=NOW() WHERE MaTK=?";
-        $updateAccountStmt = $con->prepare($updateAccountSql);
-        $updateAccountStmt->bind_param('sss', $TenDangNhap, $PhanQuyen, $maTK);
-    }
-
-    $updatePersonalSql = "UPDATE thongtincanhan SET TenKH=?, NgaySinh=?, DiaChi=?, Email=?, SDT=? WHERE MaKH=(SELECT MaKH FROM thongtintaikhoan WHERE MaTK=?)";
-    $updatePersonalStmt = $con->prepare($updatePersonalSql);
-    $updatePersonalStmt->bind_param('ssssss', $TenKH, $ngaySinh, $DiaChi, $email, $sdt, $maTK);
-    
-    if ($updateAccountStmt->execute() && $updatePersonalStmt->execute()) {
-        $alertMessage = "Cập nhật thông tin thành công!";
-    } else {
-        $alertMessage = "Lỗi: " . $con->error;
-    }
-}
-
-if ($alertMessage) {
-    echo "<script>alert('$alertMessage'); window.history.back();</script>";
-    exit();
-}
 ?>
 
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chỉnh Sửa Người Dùng</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; }
-        h2 { color: #333; text-align: center; }
-        form { background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); max-width: 400px; margin: auto; }
-        label { display: block; margin: 10px 0 5px; }
-        input[type="text"], input[type="email"], input[type="date"], input[type="password"], select { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        input[type="submit"] { background-color: black; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-size: 16px; }
-        input[type="submit"]:hover { background-color: gray; }
-        .password-container { position: relative; }
-        .password-container img { position: absolute; right: 10px; top: 40%; transform: translateY(-50%); cursor: pointer; width: 25px; height: 25px; }
-    </style>
-</head>
-<body>
-
-<h2>Chỉnh Sửa Thông Tin Người Dùng</h2>
-
-<form method="POST">
+<form method="POST" action="xledituser.php?MaTK=<?php echo $maTK; ?>">
     <label for="TenDangNhap">Tên Tài Khoản:</label>
     <input type="text" name="TenDangNhap" value="<?php echo htmlspecialchars($row['TenDangNhap']); ?>" required>
 
@@ -120,16 +74,7 @@ if ($alertMessage) {
     <input type="submit" value="Cập Nhật">
 </form>
 
-<script>
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('MatKhau');
-
-    togglePassword.addEventListener('click', function () {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.src = type === 'password' ? '../helpers/css/images/eye-off-icon.png' : '../helpers/css/images/eye-icon.png';
-    });
-</script>
+<script src="../helpers/js/edituser.js"></script>
 
 </body>
 </html>
