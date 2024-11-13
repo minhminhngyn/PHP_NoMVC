@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2024 at 09:03 AM
+-- Generation Time: Nov 13, 2024 at 03:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -122,6 +122,7 @@ CREATE TABLE `thongtintaikhoan` (
   `TrangThaiXacThuc` tinyint(1) NOT NULL,
   `TokenEmail` varchar(64) NOT NULL,
   `ThoiGianTokenEmail` datetime NOT NULL,
+  `ThoiGianHieuLuc` datetime DEFAULT NULL,
   `Solansaidangnhap` int(11) DEFAULT NULL,
   `Tokenluudangnhap` varchar(50) DEFAULT NULL,
   `Ngayhethantoken` datetime DEFAULT NULL,
@@ -134,27 +135,27 @@ CREATE TABLE `thongtintaikhoan` (
 -- Dumping data for table `thongtintaikhoan`
 --
 
-INSERT INTO `thongtintaikhoan` (`MaTK`, `TenDangNhap`, `MatKhau`, `NgayTao`, `NguoiTao`, `NgaySua`, `NguoiSua`, `PhanQuyen`, `TrangThaiHoatDong`, `TrangThaiXacThuc`, `TokenEmail`, `ThoiGianTokenEmail`, `Solansaidangnhap`, `Tokenluudangnhap`, `Ngayhethantoken`, `Lanchothulai`, `Tokenxacnhan`, `Ngayhethanxacnhan`) VALUES
-(1, 'an_tk1', '$2a$12$Rseh2gmelUDob6dfmUfTz.H08Os6jxyQolHL.78ST8AfH1oGlq9/u', '2024-10-27 11:07:25', 'an_tk', '2024-11-13 14:08:51', 'an_tk1', 'admin', 1, 1, '5a5b93951852c428d44107bb6caaa1d99752200c2c3b276892937b04379ab1ce', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'tung_tk2', '$2a$12$/mFz.ol.rZXLhq8OtA7E1uG4whUrhyx92fPcTjpnXrcfZNBg7/dA2', '2024-10-27 11:07:25', 'tung_tk', '2024-11-12 10:19:27', '', 'user', 1, 1, 'a13141107992db605226f6f523d417804c97743493517801d79e21c79422a9f6', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'tuyet_tk1', '$2a$12$BwnIoc9WH/goE8VniONbvu1ypR8kCbKGdyHvGdLRHZ3JzqfX5R3Hu', '2024-10-27 11:07:25', 'tuyet_tk', '2024-11-12 10:18:17', '', 'user', 1, 1, '8077dd88c202725577bfe92c56cea42d3b97ae94845cc5335642d042e91a513c', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'loc_tk', '$2a$12$IsDwtUaj5rvelJLmEMTcT.0uRvVFJ57PGV6n7NH9bg51go5fC4KQ.', '2024-10-27 11:07:25', 'loc_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, '4c50872195b92f651fe601543fc2b0e99b2bcb33b415bfc626e7433a94c8afca', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 'kien_tk', '$2a$12$iih5Ufzvai.UhhCj9knSauoUZqi2L/f226JsPC3uK8LNGp8TXGQce', '2024-10-27 11:07:25', 'kien_tk', '2024-10-27 12:07:15', 'kien_tk', 'user', 1, 1, '953d5e7d71b8973ea27e92b72f9151fa47bd3d5be9d49c683056a820fa8baa82', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'nhung_tk', '$2a$12$vavmhZC0YPNzDwc3sEB35.FTKm/jMSWbQSe7FhDwZMJz6nFHiL4fe', '2024-10-27 11:07:25', 'nhung_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, 'b589cbe660e6f981d1cccd95e3e0cde62e3d82a8a3aafa63d071705db16ed0cd', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'son_tk', '$2a$12$.5Bz4cM2qjhFmwZ4zjAStOjLjFsf0TLlm6KhNu2jx3M6WFcltkHTK', '2024-10-27 11:07:25', 'son_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, '8b8fea6e5af8715f09bfbdf18b5d771a86caab2a98e03111da42623d2e8b1fe1', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 'thuy_tk', '$2a$12$RGxHeumzqPs.dOz7nOgV../7NXEzxAyDKQiWUPqp.BT2lwHAFyx2m', '2024-10-27 11:07:25', 'thuy_tk', '2024-10-27 12:07:15', 'thuy_tk', 'user', 1, 1, '4cadffbbd6fcae05ee3f5254a297c3fae6174c50744b10031e4d6224495d468a', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 'hai_tk', '$2a$12$BO.Yb.sjp5WSiCYX7S2Z6eURguIA.Y8ZiJU8fCkFs8KNJ3.zKINUK', '2024-10-27 11:07:25', 'hai_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, '5308264e5f24fa5a568f5b7db986bdb4a76d47723be7c607faeb7765b4ba5ff7', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 'dung_tk', '$2a$12$8al4lZvcPIMJ0qbG8P6kcOK5nrVnVLtk3keSHGx1QpTkFWLL7Biee', '2024-10-27 11:07:25', 'dung_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, '95e22ed3f976b470e952493b2fa3f2054c4b3a47ef4bf3816ba312f75f3b621f', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'dat_tk', '$2a$12$Vc5h1wJF4CUdvAO/e65eZ.6GuBN8fUvR8TlFHqtdvF9.KdPW23zoq', '2024-10-27 11:07:25', 'dat_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, 'a57e88be72a81cfc9c3d0f7e81a94f1ef6102081b64a677afc843406fb950242', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 'bich_tk', '$2a$12$vx8oeZyj5MiOdRbDFy0MTOoFjjVSGmWyByOF3wOzLz.HQsGa8jI7K', '2024-10-27 11:07:25', 'bich_tk', '0000-00-00 00:00:00', '', 'admin', 1, 1, '838ffa7a80ac13996ad19cc3fd65a7d292474ab5d0844f00aec8d01afa83cf8a', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'hang_tk', '$2a$12$xaI45/.GwxfTyaU9I2mXjumXwGbtrdpFUesAvn14S9/HisMNzhRKC', '2024-10-27 11:07:25', 'hang_tk', '2024-10-27 12:07:15', 'hang_tk', 'user', 1, 1, '848d60e5b26ca723d4dc899b46de2f718f196fe55e65aaf779dfeef129c1efff', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 'huy_tk', '$2a$12$q9X3xW5yk9a5GDtHneP/yuYJwhry4iGr71Y3sags30uhajR7npu/.', '2024-10-27 11:07:25', 'huy_tk', '0000-00-00 00:00:00', '', 'admin', 1, 1, '2e02d06d8aaf1b30744484f515b8ea01d1e0dc4a6927b057d226a843119fe98c', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 'hoa_tk', '$2a$12$q3Ws5/wPdruDNJXlHLh.d.gCrNwhptVjmzxT9tKnlkmEu9flIZvqe', '2024-10-27 11:07:25', 'hoa_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, '74599ba3b00297fc82d87e6a1c39d4547b818d2b9fd576850668651463f8a40c', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(16, 'lan_tk', '$2a$12$sdFcrZC6of6.6ELwcl9t0ea0EZooZXC0NQAUe8RFflMo1Fekm40Fa', '2024-10-27 11:07:25', 'lan_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, '90ebc32ac722b7f14c692c1b93203bec893b75fee5e4aa014025a10be834f184', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 'khai_tk', '$2a$12$v/iq9cD5S9uRMHVyGEz3g.Qdf1UvOV1jzo8sAHeQWUNRKRIJbY4Rm', '2024-10-27 11:07:25', 'khai_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, 'c87af0a315f8c91b3801cbc5e5ed7481c19720049018e9e3edc13c921390ae2b', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(18, 'thao_tk', '$2a$12$pTdYsc2pp.N5QcEIbhm1RegfhnJO6Os5f28VFbo3s5cMQwb5XbVnG', '2024-10-27 11:07:25', 'thao_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, '17609752e553e3875409c4f38e7b30ae6d62ab0217a7a7e0027f1c5df0fd1698', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(19, 'minh_tk', '$2a$12$bjAvzoiK3uZHYO7J4TjTMuAkw/qz2VlbLDbXUeqc95J3IOPGBy4em', '2024-10-27 11:07:25', 'minh_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, 'a54eb168443b46e741a7b520d92c10306568133345540acce6fd0888d3cb6dad', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 'huong_tk', '$2a$12$LXke9cDojwEhTM7laNUnUurpCjtcDi0DSP2vGLvTOJ6Qke0Uc0iCW', '2024-10-27 11:07:25', 'huong_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, 'dcdd125559d4eba8ca79368971c636ddff9c01e216fb165a2ee0a114c8e014c9', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `thongtintaikhoan` (`MaTK`, `TenDangNhap`, `MatKhau`, `NgayTao`, `NguoiTao`, `NgaySua`, `NguoiSua`, `PhanQuyen`, `TrangThaiHoatDong`, `TrangThaiXacThuc`, `TokenEmail`, `ThoiGianTokenEmail`, `ThoiGianHieuLuc`, `Solansaidangnhap`, `Tokenluudangnhap`, `Ngayhethantoken`, `Lanchothulai`, `Tokenxacnhan`, `Ngayhethanxacnhan`) VALUES
+(1, 'an_tk1', '$2a$12$Rseh2gmelUDob6dfmUfTz.H08Os6jxyQolHL.78ST8AfH1oGlq9/u', '2024-10-27 11:07:25', 'an_tk', '2024-11-13 14:08:51', 'an_tk1', 'admin', 1, 1, '5a5b93951852c428d44107bb6caaa1d99752200c2c3b276892937b04379ab1ce', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'tung_tk2', '$2a$12$/mFz.ol.rZXLhq8OtA7E1uG4whUrhyx92fPcTjpnXrcfZNBg7/dA2', '2024-10-27 11:07:25', 'tung_tk', '2024-11-12 10:19:27', '', 'user', 1, 1, 'a13141107992db605226f6f523d417804c97743493517801d79e21c79422a9f6', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'tuyet_tk1', '$2a$12$BwnIoc9WH/goE8VniONbvu1ypR8kCbKGdyHvGdLRHZ3JzqfX5R3Hu', '2024-10-27 11:07:25', 'tuyet_tk', '2024-11-12 10:18:17', '', 'user', 1, 1, '8077dd88c202725577bfe92c56cea42d3b97ae94845cc5335642d042e91a513c', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'loc_tk', '$2a$12$IsDwtUaj5rvelJLmEMTcT.0uRvVFJ57PGV6n7NH9bg51go5fC4KQ.', '2024-10-27 11:07:25', 'loc_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, '4c50872195b92f651fe601543fc2b0e99b2bcb33b415bfc626e7433a94c8afca', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'kien_tk', '$2a$12$iih5Ufzvai.UhhCj9knSauoUZqi2L/f226JsPC3uK8LNGp8TXGQce', '2024-10-27 11:07:25', 'kien_tk', '2024-10-27 12:07:15', 'kien_tk', 'user', 1, 1, '953d5e7d71b8973ea27e92b72f9151fa47bd3d5be9d49c683056a820fa8baa82', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'nhung_tk', '$2a$12$vavmhZC0YPNzDwc3sEB35.FTKm/jMSWbQSe7FhDwZMJz6nFHiL4fe', '2024-10-27 11:07:25', 'nhung_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, 'b589cbe660e6f981d1cccd95e3e0cde62e3d82a8a3aafa63d071705db16ed0cd', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'son_tk', '$2a$12$.5Bz4cM2qjhFmwZ4zjAStOjLjFsf0TLlm6KhNu2jx3M6WFcltkHTK', '2024-10-27 11:07:25', 'son_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, '8b8fea6e5af8715f09bfbdf18b5d771a86caab2a98e03111da42623d2e8b1fe1', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'thuy_tk', '$2a$12$RGxHeumzqPs.dOz7nOgV../7NXEzxAyDKQiWUPqp.BT2lwHAFyx2m', '2024-10-27 11:07:25', 'thuy_tk', '2024-10-27 12:07:15', 'thuy_tk', 'user', 1, 1, '4cadffbbd6fcae05ee3f5254a297c3fae6174c50744b10031e4d6224495d468a', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'hai_tk', '$2a$12$BO.Yb.sjp5WSiCYX7S2Z6eURguIA.Y8ZiJU8fCkFs8KNJ3.zKINUK', '2024-10-27 11:07:25', 'hai_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, '5308264e5f24fa5a568f5b7db986bdb4a76d47723be7c607faeb7765b4ba5ff7', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 'dung_tk', '$2a$12$8al4lZvcPIMJ0qbG8P6kcOK5nrVnVLtk3keSHGx1QpTkFWLL7Biee', '2024-10-27 11:07:25', 'dung_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, '95e22ed3f976b470e952493b2fa3f2054c4b3a47ef4bf3816ba312f75f3b621f', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'dat_tk', '$2a$12$Vc5h1wJF4CUdvAO/e65eZ.6GuBN8fUvR8TlFHqtdvF9.KdPW23zoq', '2024-10-27 11:07:25', 'dat_tk', '0000-00-00 00:00:00', '', 'user', 1, 1, 'a57e88be72a81cfc9c3d0f7e81a94f1ef6102081b64a677afc843406fb950242', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 'bich_tk', '$2a$12$vx8oeZyj5MiOdRbDFy0MTOoFjjVSGmWyByOF3wOzLz.HQsGa8jI7K', '2024-10-27 11:07:25', 'bich_tk', '0000-00-00 00:00:00', '', 'admin', 1, 1, '838ffa7a80ac13996ad19cc3fd65a7d292474ab5d0844f00aec8d01afa83cf8a', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'hang_tk', '$2a$12$xaI45/.GwxfTyaU9I2mXjumXwGbtrdpFUesAvn14S9/HisMNzhRKC', '2024-10-27 11:07:25', 'hang_tk', '2024-10-27 12:07:15', 'hang_tk', 'user', 1, 1, '848d60e5b26ca723d4dc899b46de2f718f196fe55e65aaf779dfeef129c1efff', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 'huy_tk', '$2a$12$q9X3xW5yk9a5GDtHneP/yuYJwhry4iGr71Y3sags30uhajR7npu/.', '2024-10-27 11:07:25', 'huy_tk', '0000-00-00 00:00:00', '', 'admin', 1, 1, '2e02d06d8aaf1b30744484f515b8ea01d1e0dc4a6927b057d226a843119fe98c', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 'hoa_tk', '$2a$12$q3Ws5/wPdruDNJXlHLh.d.gCrNwhptVjmzxT9tKnlkmEu9flIZvqe', '2024-10-27 11:07:25', 'hoa_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, '74599ba3b00297fc82d87e6a1c39d4547b818d2b9fd576850668651463f8a40c', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 'lan_tk', '$2a$12$sdFcrZC6of6.6ELwcl9t0ea0EZooZXC0NQAUe8RFflMo1Fekm40Fa', '2024-10-27 11:07:25', 'lan_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, '90ebc32ac722b7f14c692c1b93203bec893b75fee5e4aa014025a10be834f184', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 'khai_tk', '$2a$12$v/iq9cD5S9uRMHVyGEz3g.Qdf1UvOV1jzo8sAHeQWUNRKRIJbY4Rm', '2024-10-27 11:07:25', 'khai_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, 'c87af0a315f8c91b3801cbc5e5ed7481c19720049018e9e3edc13c921390ae2b', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 'thao_tk', '$2a$12$pTdYsc2pp.N5QcEIbhm1RegfhnJO6Os5f28VFbo3s5cMQwb5XbVnG', '2024-10-27 11:07:25', 'thao_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, '17609752e553e3875409c4f38e7b30ae6d62ab0217a7a7e0027f1c5df0fd1698', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 'minh_tk', '$2a$12$bjAvzoiK3uZHYO7J4TjTMuAkw/qz2VlbLDbXUeqc95J3IOPGBy4em', '2024-10-27 11:07:25', 'minh_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, 'a54eb168443b46e741a7b520d92c10306568133345540acce6fd0888d3cb6dad', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 'huong_tk', '$2a$12$LXke9cDojwEhTM7laNUnUurpCjtcDi0DSP2vGLvTOJ6Qke0Uc0iCW', '2024-10-27 11:07:25', 'huong_tk', '0000-00-00 00:00:00', '', 'user', 0, 0, 'dcdd125559d4eba8ca79368971c636ddff9c01e216fb165a2ee0a114c8e014c9', '2024-10-27 11:07:25', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
