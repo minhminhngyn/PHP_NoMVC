@@ -63,6 +63,9 @@
             $sql_delete = "DELETE FROM thongtintaikhoan_tam WHERE TokenEmail='{$token}';";
             $con->query($sql_delete);
 
+            $sql_delete_ttcn = "DELETE FROM thongtincanhan_tam WHERE TokenEmail='{$token}';";
+            $con->query($sql_delete_ttcn);
+
             echo "Tài khoản của bạn đã được kích hoạt thành công! 
                     Bạn có thể <a href='../dangnhap/dangnhap.php'>đăng nhập</a>.";
         } 

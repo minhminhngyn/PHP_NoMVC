@@ -2,7 +2,7 @@
     $host="localhost";
     $user="root";
     $pass="";
-    $db="db_kiemtra2";
+    $db="db_kiemtra2_02";
     $con=new mysqli($host,$user,$pass,$db);
     if(!$con)
     {

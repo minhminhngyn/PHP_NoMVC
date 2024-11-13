@@ -74,7 +74,7 @@
         }
     ?>
     
-    <script src="frm_dki.js"></script> 
+    <script src="../helpers/js/frm_dki.js"></script> 
     
 </body>
 </html>
