@@ -1,10 +1,7 @@
 //hiển thị mật khẩu
 document.querySelectorAll('.view_password').forEach(button => {
-    //console.log(button);
     button.addEventListener('click', function() {
-        //const passwordInput = this.previousElementSibling;
         const passwordInput=this.closest('tr').querySelector('input');
-        //console.log(passwordInput);
         if (passwordInput.getAttribute('type') === 'password') {
             passwordInput.setAttribute('type', 'text');
             this.textContent = 'Ẩn';
@@ -58,4 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+
+
+
+
 

@@ -11,6 +11,7 @@
     </style>
 </head>
 <body>
+
     
     <div>
         <h3> Đăng ký tài khoản </h3>
@@ -72,8 +73,8 @@
             echo "<script>alert('" . htmlspecialchars($_GET['mess']) . "');</script>";
         }
     ?>
+    
     <script src="frm_dki.js"></script> 
-
     
 </body>
 </html>
