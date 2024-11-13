@@ -1,11 +1,6 @@
 <?php
 session_start();
 include 'xlqluser.php'; 
-
-// if (!isset($_SESSION['PhanQuyen']) || $_SESSION['PhanQuyen'] != 'admin') {
-//     echo "Bạn không có quyền truy cập trang này.";
-//     exit();
-// }
 ?>
 
 <!DOCTYPE html>

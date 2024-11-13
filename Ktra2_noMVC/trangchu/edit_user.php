@@ -20,7 +20,6 @@ if (!isset($_GET['MaTK'])) {
     echo "<script>alert('Mã tài khoản không hợp lệ.'); window.history.back();</script>";
     exit();
 }
-
 $maTK = $_GET['MaTK'];
 
 $sql = "SELECT a.MaTK, a.TenDangNhap, a.PhanQuyen, b.TenKH, b.NgaySinh, b.DiaChi, b.Email, b.SDT 

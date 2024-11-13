@@ -19,6 +19,20 @@ $matKhau = $_POST['MatKhau'];
 
 $alertMessage = '';
 
+$checkUsernameSql = "SELECT MaTK FROM thongtintaikhoan WHERE TenDangNhap = ? AND MaTK != ?";
+$checkUsernameStmt = $con->prepare($checkUsernameSql);
+$checkUsernameStmt->bind_param('ss', $TenDangNhap, $maTK);
+$checkUsernameStmt->execute();
+$checkUsernameStmt->store_result();
+
+if ($checkUsernameStmt->num_rows > 0) {
+    $alertMessage = "Tên đăng nhập đã tồn tại. Vui lòng chọn tên đăng nhập khác.";
+    echo "<script>alert('$alertMessage'); window.history.back();</script>";
+    exit();
+}
+
+$checkUsernameStmt->close();
+
 if (!empty($matKhau)) {
     $matKhau = password_hash($matKhau, PASSWORD_BCRYPT);
     $updateAccountSql = "UPDATE thongtintaikhoan SET TenDangNhap=?, Matkhau=?, PhanQuyen=?, NgaySua=NOW(), NguoiSua=? WHERE MaTK=?";
@@ -27,7 +41,7 @@ if (!empty($matKhau)) {
 } else {
     $updateAccountSql = "UPDATE thongtintaikhoan SET TenDangNhap=?, PhanQuyen=?, NgaySua=NOW(), NguoiSua=? WHERE MaTK=?";
     $updateAccountStmt = $con->prepare($updateAccountSql);
-    $updateAccountStmt->bind_param('ssss', $TenDangNhap, $PhanQuyen,$TenDangNhap, $maTK);
+    $updateAccountStmt->bind_param('ssss', $TenDangNhap, $PhanQuyen, $TenDangNhap, $maTK);
 }
 
 $updatePersonalSql = "UPDATE thongtincanhan SET TenKH=?, NgaySinh=?, DiaChi=?, Email=?, SDT=? WHERE MaKH=?";
@@ -36,9 +50,15 @@ $updatePersonalStmt->bind_param('ssssss', $TenKH, $ngaySinh, $DiaChi, $email, $s
 
 if ($updateAccountStmt->execute() && $updatePersonalStmt->execute()) {
     $alertMessage = "Cập nhật thông tin thành công!";
-    echo "<script>alert('$alertMessage'); window.location.href='qluser.php';</script>";
+    if ($PhanQuyen === 'admin') {
+        echo "<script>alert('$alertMessage'); window.location.href='qluser.php';</script>";
+    } else {
+        echo "<script>alert('$alertMessage'); window.location.href='welcome.php';</script>";
+    }
 } else {
     $alertMessage = "Lỗi: " . $con->error;
     echo "<script>alert('$alertMessage'); window.history.back();</script>";
 }
+
 exit();
+?>

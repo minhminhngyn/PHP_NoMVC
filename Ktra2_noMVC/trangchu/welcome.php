@@ -1,15 +1,27 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../dangnhap/dangnhap.php"); // Chuyển hướng về trang đăng nhập nếu không có session
-    exit;
-}
-
-echo "Chào mừng bạn đến với trang chính!";
+$user_role = $_SESSION['vaitro'];
 ?>
 
-<!-- Nút Đăng xuất -->
-<form action="../dangnhap/xldangnhap.php" method="get" style="margin-top: 20px;">
-    <input type="hidden" name="action" value="logout">
-    <button type="submit">Đăng xuất</button>
-</form>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" href="..\helpers\css\welcome.css">
+</head>
+<body>
+
+<h1 class="page-title">Trang Chủ</h1>
+
+<button type="button" class="logout-button" onclick="window.location.href='../dangnhap/dangnhap.php';">Đăng Xuất</button>
+
+<?php if ($user_role == 'admin'): ?>
+    <button type="button" class="qluser-button" onclick="window.location.href='../trangchu/qluser.php';">Quản lý người dùng</button>
+<?php else: ?>
+    <button type="button" class="qluser-button" onclick="window.location.href='../trangchu/edit_user.php?MaTK=<?php echo $_SESSION['user_id']; ?>';">Thông tin cá nhân</button>
+<?php endif; ?>
+
+</body>
+</html>
