@@ -69,12 +69,7 @@ if (isset($_COOKIE['remember_me'])) {
         
         $_SESSION['user_id'] = $maTK; 
 
-        // Điều hướng dựa trên vai trò
-        if ($vaitro === 'admin') {
-            header("Location: ../trangchu/qluser.php");  
-        } else {
-            header("Location: ../trangchu/welcome.php");  
-        }
+        header("Location: ../trangchu/welcome.php");
         exit;
     }
     $stmt->close();
@@ -158,11 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->execute();
             }
         
-            if ($vaitro === 'admin') {
-                header("Location: ../trangchu/qluser.php");  
-            } else {
-                header("Location: ../trangchu/welcome.php");  
-            }
+            header("Location: ../trangchu/welcome.php");
             exit;
         }
          else {
