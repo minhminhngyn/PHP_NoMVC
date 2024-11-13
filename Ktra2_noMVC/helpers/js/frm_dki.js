@@ -112,7 +112,7 @@ function togglePasswordVisibility(inputName) {
 
     if (inputField.type === 'password') {
         inputField.type = 'text';
-        eyeIcon.src = 'helpers/css/eye-icon.png'; // Hình ảnh con mắt mở
+        eyeIcon.src = '../helpers/css/images/eye-icon.png'; // Hình ảnh con mắt mở
     } else {
         inputField.type = 'password';
         eyeIcon.src = '../helpers/css/images/eye-off-icon.png'; // Hình ảnh con mắt đóng
