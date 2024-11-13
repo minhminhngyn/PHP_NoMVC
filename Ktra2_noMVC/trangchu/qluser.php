@@ -23,8 +23,8 @@ include 'xlqluser.php';
     <input type="text" name="search" placeholder="Tìm kiếm tài khoản" value="<?php echo htmlspecialchars($search); ?>">
     <select name="role_filter">
         <option value="">Tất cả vai trò</option>
-        <option value="admin" <?php echo ($role_filter == 'admin') ? 'selected' : ''; ?>>Admin</option>
         <option value="user" <?php echo ($role_filter == 'user') ? 'selected' : ''; ?>>User</option>
+        <option value="admin" <?php echo ($role_filter == 'admin') ? 'selected' : ''; ?>>Admin</option>
     </select>
     <input type="submit" value="Tìm kiếm">
 </form>
@@ -41,8 +41,8 @@ include 'xlqluser.php';
                 <td><?php echo htmlspecialchars($row['TenDangNhap']); ?></td>
                 <td>
                     <select id="role-<?php echo $row['MaTK']; ?>" name="new_role" data-old-role="<?php echo htmlspecialchars($row['PhanQuyen']); ?>" onchange="checkRoleChange(this, '<?php echo $row['MaTK']; ?>')">
-                        <option value="admin" <?php echo ($row['PhanQuyen'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
                         <option value="user" <?php echo ($row['PhanQuyen'] == 'user') ? 'selected' : ''; ?>>User</option>
+                        <option value="admin" <?php echo ($row['PhanQuyen'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
                     </select>
                 </td>
                 <td>
