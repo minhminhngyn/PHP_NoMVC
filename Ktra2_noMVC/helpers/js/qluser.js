@@ -6,3 +6,9 @@ function checkRoleChange(selectElement, id) {
             newRoleInput.value = newRole;
             saveButton.style.display = oldRole !== newRole ? 'inline-block' : 'none';
         }
+
+function confirmLogout() {
+            if (confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
+                window.location.href = '../dangnhap/dangnhap.php';
+            }
+        }
