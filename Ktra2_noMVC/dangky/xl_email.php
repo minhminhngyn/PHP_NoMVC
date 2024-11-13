@@ -64,7 +64,7 @@
             $con->query($sql_delete);
 
             echo "Tài khoản của bạn đã được kích hoạt thành công! 
-                    Bạn có thể <a href='../../dangnhap/dangnhap.php'>đăng nhập</a>.";
+                    Bạn có thể <a href='../dangnhap/dangnhap.php'>đăng nhập</a>.";
         } 
         else 
         {
