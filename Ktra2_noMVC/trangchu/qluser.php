@@ -16,7 +16,7 @@ include 'xlqluser.php';
 
 <button type="button" class="home-button" onclick="window.location.href='../trangchu/welcome.php';">Trang Chủ</button>
 
-<button type="button" class="logout-button" onclick="window.location.href='../dangnhap/dangnhap.php';">Đăng Xuất</button>
+<button type="button" class="logout-button" onclick="confirmLogout();">Đăng Xuất</button>
 
 <h2>Quản Lý Người Dùng</h2>
 <form method="POST" action="">

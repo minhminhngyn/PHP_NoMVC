@@ -13,7 +13,7 @@ include '../helpers/others/connect.inp';
 </head>
 <body>
 <button type="button" class="home-button" onclick="window.location.href='../trangchu/welcome.php';">Trang Chủ</button>
-<button type="button" class="logout-button" onclick="window.location.href='../dangnhap/dangnhap.php';">Đăng Xuất</button>
+<button type="button" class="logout-button" onclick="confirmLogout();">Đăng Xuất</button>
 <h2>Chỉnh Sửa Thông Tin Người Dùng</h2>
 <?php
 if (!isset($_GET['MaTK'])) {
@@ -42,12 +42,6 @@ $row = $result->fetch_assoc();
 <form method="POST" action="xledituser.php?MaTK=<?php echo $maTK; ?>">
     <label for="TenDangNhap">Tên Tài Khoản:</label>
     <input type="text" name="TenDangNhap" value="<?php echo htmlspecialchars($row['TenDangNhap']); ?>" required>
-
-    <label for="PhanQuyen">Vai Trò:</label>
-    <select name="PhanQuyen">
-        <option value="admin" <?php echo ($row['PhanQuyen'] == 'admin') ? 'selected' : ''; ?>>Admin</option>
-        <option value="user" <?php echo ($row['PhanQuyen'] == 'user') ? 'selected' : ''; ?>>User</option>
-    </select>
 
     <label for="TenKH">Họ Tên:</label>
     <input type="text" name="TenKH" value="<?php echo htmlspecialchars($row['TenKH']); ?>" required>
