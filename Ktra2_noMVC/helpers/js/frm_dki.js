@@ -105,3 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('reset_value').addEventListener('click', resetForm);
 });
+
+function togglePasswordVisibility(inputName) {
+    const inputField = document.querySelector(`input[name='${inputName}']`);
+    const eyeIcon = document.getElementById(inputName === 'password' ? 'eyeIconPassword' : 'eyeIconConfirmPassword');
+
+    if (inputField.type === 'password') {
+        inputField.type = 'text';
+        eyeIcon.src = 'helpers/css/eye-icon.png'; // Hình ảnh con mắt mở
+    } else {
+        inputField.type = 'password';
+        eyeIcon.src = '../helpers/css/images/eye-off-icon.png'; // Hình ảnh con mắt đóng
+    }
+}
