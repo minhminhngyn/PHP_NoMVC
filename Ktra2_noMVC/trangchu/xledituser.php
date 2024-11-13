@@ -36,9 +36,9 @@ $updatePersonalStmt->bind_param('ssssss', $TenKH, $ngaySinh, $DiaChi, $email, $s
 
 if ($updateAccountStmt->execute() && $updatePersonalStmt->execute()) {
     $alertMessage = "Cập nhật thông tin thành công!";
+    echo "<script>alert('$alertMessage'); window.location.href='qluser.php';</script>";
 } else {
     $alertMessage = "Lỗi: " . $con->error;
+    echo "<script>alert('$alertMessage'); window.history.back();</script>";
 }
-
-echo "<script>alert('$alertMessage'); window.history.back();</script>";
 exit();
