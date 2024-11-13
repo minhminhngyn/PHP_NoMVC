@@ -66,7 +66,13 @@
         <button type='button' id='reset_value'>Làm lại</button>
         <input type='submit' value='Đăng ký'>
     </form>
-    <script src="../helpers/js/frm_dki.js"></script> 
+    <?php
+        if (isset($_GET['mess'])) 
+        {
+            echo "<script>alert('" . htmlspecialchars($_GET['mess']) . "');</script>";
+        }
+    ?>
+    <script src="frm_dki.js"></script> 
 
     
 </body>
