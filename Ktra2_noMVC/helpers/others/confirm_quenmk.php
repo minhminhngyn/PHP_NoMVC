@@ -6,7 +6,7 @@ if (isset($_GET['token'])) {
     $token = $_GET['token'];
 
     // Truy vấn cơ sở dữ liệu để kiểm tra token
-    $stmt = $con->prepare("SELECT * FROM datlaimk WHERE Token = ? AND TrangThai = 'Active' AND TgHethan > NOW()");
+    $stmt = $con->prepare("SELECT * FROM datlaimk WHERE Token = ? AND TrangThai = '1' AND TgHethan > NOW()");
     $stmt->bind_param("s", $token);
     $stmt->execute();
     $result = $stmt->get_result();
