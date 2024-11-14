@@ -1,5 +1,5 @@
 <?php
-    include('connect.inp');
+    include '../helpers/others/connect.inp'; 
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
         // thông tin cá nhân
@@ -84,7 +84,7 @@
                 // Nội dung email
                 $mail->isHTML(true);
                 $mail->Subject = 'Xác nhận tài khoản của bạn nhé';
-                $activationLink= "localhost/ktra2_noMVC/PHP_NoMVC/Ktra2_noMVC/dangky/xl_email.php?token={$token}";
+                $activationLink= "localhost/PHP_NoMVC-master (1)/PHP_NoMVC-master/Ktra2_noMVC/dangky/xl_email.php?token={$token}";
                 $noidung="Xin chào $name,<br><br>Cảm ơn bạn đã đăng ký tài khoản.<br>
                         Vui lòng nhấp vào link bên dưới để kích hoạt tài khoản của bạn:<br>
                         <a href='{$activationLink}'>Kích hoạt tài khoản</a><br>";

@@ -1,5 +1,5 @@
 <?php
-    include('connect.inp');
+    include '../helpers/others/connect.inp'; 
     if(isset($_GET['token']))
     {
         $token=$_GET['token'];
