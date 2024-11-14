@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Kiểm tra tính hợp lệ của token
-    $sql = "SELECT * FROM datlaimk WHERE Token = ? AND TgHethan > NOW() AND TrangThai = 0";
+    $sql = "SELECT * FROM datlaimk WHERE Token = ? AND TgHethan > NOW() AND TrangThai = 1";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("s", $token);
     $stmt->execute();

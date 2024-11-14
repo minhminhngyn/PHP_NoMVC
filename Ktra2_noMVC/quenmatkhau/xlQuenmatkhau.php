@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
             $expiry = date("Y-m-d H:i:s", strtotime($currentDateTime . ' +1 hour'));
 
             // Cập nhật bảng datlaimk với token mới
-            $insertToken = $con->prepare("INSERT INTO datlaimk (MaToken, MaTK, Token, TgTao, TgHethan, TrangThai) VALUES (?, ?, ?, ?, ?, 'Active')");
+            $insertToken = $con->prepare("INSERT INTO datlaimk (MaToken, MaTK, Token, TgTao, TgHethan, TrangThai) VALUES (?, ?, ?, ?, ?, '1')");
             if (!$insertToken) {
                 die("Lỗi trong câu truy vấn INSERT: " . $con->error);
             }
@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
             $insertToken->bind_param("sssss", $maToken, $maTK, $token, $currentDateTime, $expiry);
             $insertToken->execute();
 
-            $resetLink = "http://localhost/Ktra2_noMVC/helpers/others/confirm_quenmk.php?token=" . $token;
+            $resetLink = "localhost/PHP_NoMVC-master/PHP_NoMVC-master/Ktra2_noMVC/helpers/others/confirm_quenmk.php?token=" . $token;
             $mail->isHTML(true);
             $mail->Subject = "Quên mật khẩu";
             $mail->Body = "

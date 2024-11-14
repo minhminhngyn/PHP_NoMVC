@@ -56,7 +56,7 @@
             </td>
         </tr>
         <div style="text-align: center;"> 
-            <button type='button' id='reset_value'>Bỏ qua</button>
+            <button type='button' id='reset_value'>Làm lại</button>
             <input type='submit' value='Đặt lại mật khẩu'>
         </div>
         <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
